@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Keep</title>
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet">
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="shortcut icon" href="/resources/logo_keep_2026_.png" type="image/x-icon">
+
+</head>
+
+<body>
+<!--  HEADER  -->
+<header class="header">
+
+    <div class="header-left">
+
+        <button
+            class="icon-button tooltip"
+            id="menuButton"
+            aria-label="Open menu"
+            data-tooltip="Menu">
+            <span class="material-icons">menu</span>
+        </button>
+
+        <div class="logo">
+            <img class="gb_9c gb_je" src="https://www.gstatic.com/images/branding/productlogos/keep_2026/v2/web-48dp/logo_keep_2026_color_1x_web_48dp.png" 
+                 srcset="https://www.gstatic.com/images/branding/productlogos/keep_2026/v2/web-48dp/logo_keep_2026_color_1x_web_48dp.png 1x, https://www.gstatic.com/images/branding/productlogos/keep_2026/v2/web-48dp/logo_keep_2026_color_2x_web_48dp.png 2x " 
+                 alt="" aria-hidden="true" role="presentation" style="width:40px;height:40px">
+            <span class="tooltip-text">Keep</span>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-container">
+        <span class="material-icons search-icon">search</span>
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Search notes"
+            aria-label="Search notes">
+
+        <button
+            class="icon-button search-close tooltip"
+            id="clearSearch"
+            aria-label="Clear search"
+            data-tooltip="Clear search">
+            <span class="material-icons">close</span>
+        </button>
+
+        <div class="header-actions"> 
+            <button class="icon-button tooltip" 
+                    id="darkModeButton" 
+                    aria-label="Toggle dark mode" 
+                    data-tooltip="Dark mode"> 
+                <span class="material-icons">dark_mode</span>
+            </button> 
+        </div>
+    </div>
+</header>
+
+<!--  SIDEBAR  -->
+<aside class="sidebar" id="sidebar">
+
+    <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="notes">
+            <span class="material-icons">lightbulb</span>
+            <span>Notes</span>
+        </button>
+
+        <button class="nav-item" data-view="archive">
+            <span class="material-icons">archive</span>
+            <span>Archive</span>
+        </button>
+
+        <button class="nav-item" data-view="trash">
+            <span class="material-icons">delete</span>
+            <span>Trash</span>
+        </button>
+    </nav>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+    <!-- Add Note -->
+    <section class="add-note-container">
+
+        <button id="addNoteButton" class="add-note-box">
+            <span>Take a note...</span>
+
+            <span class="material-icons">
+                edit
+            </span>
+        </button>
+
+    </section>
+
+
+    <!-- Notes Area -->
+    <section class="notes-section">
+
+        <div class="section-heading">
+            <h1 id="sectionTitle">Notes</h1>
+            <span id="noteCount">0 notes</span>
+        </div>
+
+        <div
+            class="notes-grid" id="notesContainer" aria-live="polite">
+            <!-- Notes will be created here with JavaScript -->
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState">
+
+            <span class="material-icons">lightbulb</span>
+            <h2>No notes yet</h2>
+            <p> Create your first note by clicking
+                "Take a note..."</p>
+        
+        </div>
+    </section>
+
+</main>
+
+<!--  NOTE MODAL  -->
+<div class="modal-overlay" id="noteModal">
+
+    <div class="note-modal">
+        <div class="modal-header">
+            <h2 id="modalTitle">Create Note</h2>
+            <button
+                class="icon-button tooltip"
+                id="closeModal"
+                aria-label="Close modal"
+                data-tooltip="Close">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+
+        <form id="noteForm">
+
+            <div class="form-group">
+                <label for="noteTitle">Title</label>
+
+                <input type="text" id="noteTitle" placeholder="Title" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="noteContent">Note</label>
+                    
+                <textarea id="noteContent" placeholder="Write your note..." rows="8" maxlength="1000" required></textarea>
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="secondary-button" id="cancelButton">
+                    Cancel
+                </button>
+
+                <button type="submit" class="primary-button">
+                    Save Note
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!--  TOAST  -->
+<div class="toast" id="toast">
+    <span class="material-icons">check_circle</span>
+    <span id="toastMessage">Note saved</span>
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

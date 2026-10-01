@@ -1,0 +1,112 @@
+/* Tablets */
+@media (max-width: 900px) {
+
+.header {
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.header-left {
+    min-width: auto;
+}
+
+.logo-text {
+    display: none;
+}
+
+.sidebar {
+    width: 80px;
+}
+
+.nav-item {
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    border-radius: 0;
+}
+
+.nav-item span:last-child {
+    display: none;
+}
+
+.main-content {
+    margin-left: 80px;
+    padding: 30px 20px;
+}
+
+
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+
+.header {
+    height: 60px;
+}
+
+.header-left {
+    min-width: 45px;
+}
+
+.sidebar {
+    top: 60px;
+    height: calc(100vh - 60px);
+    width: 65px;
+}
+
+.main-content {
+    margin-left: 65px;
+    padding: 20px 12px;
+}
+
+.search-container {
+    height: 42px;
+}
+
+.header-actions {
+    display: none;
+}
+
+.notes-grid {
+    grid-template-columns: 1fr;
+}
+
+.add-note-container {
+    margin-bottom: 30px;
+}
+
+.note-modal {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.tooltip::after {
+    display: none;
+}
+
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+
+
+.header {
+    padding: 0 8px;
+}
+
+.search-container {
+    max-width: none;
+}
+
+.main-content {
+    margin-left: 55px;
+    padding: 15px 10px;
+}
+
+.sidebar {
+    width: 55px;
+}
+
+
+}

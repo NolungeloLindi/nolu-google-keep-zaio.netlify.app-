@@ -1,0 +1,546 @@
+/*RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+html {
+font-size: 16px;
+}
+
+body {
+font-family: "Roboto", Arial, sans-serif;
+background: #ffffff;
+color: #202124;
+min-height: 100vh;
+transition: background 0.3s ease, color 0.3s ease;
+}
+
+/*HEADER */
+
+.header {
+height: 70px;
+width: 100%;
+display: flex;
+align-items: center;
+gap: 25px;
+padding: 0 25px;
+border-bottom: 1px solid #e5e5e5;
+position: sticky;
+top: 0;
+background: #ffffff;
+z-index: 100;
+}
+
+.header-left {
+display: flex;
+align-items: center;
+min-width: 220px;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 22px;
+font-weight: 500;
+}
+
+.logo-icon {
+font-size: 32px;
+color: #fbbc04;
+}
+
+/*BUTTONS */
+
+.icon-button {
+border: none;
+background: transparent;
+width: 45px;
+height: 45px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+color: inherit;
+transition: background 0.2s ease;
+}
+
+.icon-button:hover {
+background: #f1f3f4;
+}
+
+/*
+SEARCH */
+
+.search-container {
+flex: 1;
+max-width: 720px;
+height: 48px;
+background: #f1f3f4;
+border-radius: 8px;
+display: flex;
+align-items: center;
+padding: 0 10px;
+}
+
+.search-icon {
+color: #5f6368;
+margin: 0 10px;
+}
+
+.search-container input {
+flex: 1;
+border: none;
+outline: none;
+background: transparent;
+font-size: 16px;
+color: inherit;
+}
+
+.search-close {
+display: none;
+}
+
+/*SIDEBAR */
+
+.sidebar {
+position: fixed;
+top: 70px;
+left: 0;
+width: 240px;
+height: calc(100vh - 70px);
+padding-top: 20px;
+background: #ffffff;
+transition: width 0.3s ease;
+}
+
+.sidebar-nav {
+display: flex;
+flex-direction: column;
+}
+
+.nav-item {
+border: none;
+background: transparent;
+width: 95%;
+min-height: 50px;
+border-radius: 0 25px 25px 0;
+padding: 0 25px;
+display: flex;
+align-items: center;
+gap: 25px;
+cursor: pointer;
+font-size: 15px;
+color: inherit;
+text-align: left;
+transition: background 0.2s ease;
+}
+
+.nav-item:hover {
+background: #f1f3f4;
+}
+
+.nav-item.active {
+background: #feefc3;
+font-weight: 500;
+}
+
+.sidebar.hidden {
+width: 80px;
+}
+
+.sidebar.hidden .nav-item {
+justify-content: center;
+padding: 0;
+}
+
+.sidebar.hidden .nav-item span:last-child {
+display: none;
+}
+
+.sidebar.hidden + .main-content {
+margin-left: 80px;
+}
+
+/*MAIN CONTENT */
+
+.main-content {
+margin-left: 240px;
+padding: 40px;
+min-height: calc(100vh - 70px);
+transition: margin-left 0.3s ease;
+}
+
+/*ADD NOTE */
+
+.add-note-container {
+max-width: 650px;
+margin: 0 auto 45px;
+}
+
+.add-note-box {
+width: 100%;
+min-height: 55px;
+border: 1px solid #dadce0;
+border-radius: 8px;
+background: #ffffff;
+box-shadow: 0 2px 8px rgba(60, 64, 67, 0.15);
+padding: 0 18px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+color: #5f6368;
+font-size: 16px;
+cursor: pointer;
+transition: box-shadow 0.2s ease;
+}
+
+.add-note-box:hover {
+box-shadow: 0 4px 12px rgba(60, 64, 67, 0.25);
+}
+
+/*SECTION HEADING */
+
+.notes-section {
+max-width: 1300px;
+margin: auto;
+}
+
+.section-heading {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+
+.section-heading h1 {
+font-size: 20px;
+font-weight: 500;
+}
+
+#noteCount {
+color: #5f6368;
+font-size: 14px;
+}
+
+/*NOTES GRID */
+
+.notes-grid {
+display: grid;
+grid-template-columns: repeat(
+auto-fill,
+minmax(230px, 1fr)
+);
+gap: 18px;
+}
+
+/*NOTE CARD */
+
+.note-card {
+border: 1px solid #dadce0;
+border-radius: 10px;
+padding: 18px;
+min-height: 180px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background: #ffffff;
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+transform: translateY(-3px);
+box-shadow: 0 4px 12px rgba(60, 64, 67, 0.2);
+}
+
+.note-title {
+font-size: 18px;
+font-weight: 500;
+margin-bottom: 12px;
+word-break: break-word;
+}
+
+.note-content {
+color: #5f6368;
+line-height: 1.5;
+white-space: pre-wrap;
+word-break: break-word;
+flex: 1;
+}
+
+.note-date {
+font-size: 12px;
+color: #80868b;
+margin-top: 15px;
+}
+
+.note-actions {
+display: flex;
+justify-content: flex-end;
+gap: 5px;
+margin-top: 10px;
+}
+
+.note-actions .icon-button {
+width: 38px;
+height: 38px;
+}
+
+/*EMPTY STATE */
+
+.empty-state {
+min-height: 300px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #9aa0a6;
+text-align: center;
+}
+
+.empty-state .material-icons {
+font-size: 80px;
+margin-bottom: 20px;
+}
+
+.empty-state h2 {
+font-weight: 400;
+margin-bottom: 10px;
+}
+
+.empty-state p {
+font-size: 14px;
+}
+
+/*MODAL */
+
+.modal-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.45);
+display: none;
+align-items: center;
+justify-content: center;
+padding: 20px;
+z-index: 1000;
+}
+
+.modal-overlay.show {
+display: flex;
+}
+
+.note-modal {
+width: 100%;
+max-width: 600px;
+background: #ffffff;
+border-radius: 12px;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+animation: modalOpen 0.2s ease;
+}
+
+@keyframes modalOpen {
+from {
+opacity: 0;
+transform: scale(0.95);
+}
+
+
+to {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+}
+
+.modal-header {
+padding: 18px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.modal-header h2 {
+font-size: 20px;
+font-weight: 500;
+}
+
+.form-group {
+padding: 0 20px;
+margin-bottom: 15px;
+}
+
+.form-group label {
+display: block;
+font-size: 14px;
+margin-bottom: 7px;
+color: #5f6368;
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+border: 1px solid #dadce0;
+border-radius: 6px;
+padding: 12px;
+font-family: inherit;
+font-size: 15px;
+outline: none;
+background: transparent;
+color: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+border-color: #1a73e8;
+}
+
+.form-group textarea {
+resize: vertical;
+}
+
+.modal-footer {
+padding: 15px 20px 20px;
+display: flex;
+justify-content: flex-end;
+gap: 10px;
+}
+
+.primary-button,
+.secondary-button {
+border: none;
+border-radius: 5px;
+padding: 10px 18px;
+cursor: pointer;
+font-weight: 500;
+}
+
+.primary-button {
+background: #1a73e8;
+color: white;
+}
+
+.primary-button:hover {
+background: #1557b0;
+}
+
+.secondary-button {
+background: #f1f3f4;
+color: #202124;
+}
+
+.secondary-button:hover {
+background: #e8eaed;
+}
+
+/*TOOLTIPS */
+
+.tooltip {
+position: relative;
+}
+
+.tooltip::after {
+content: attr(data-tooltip);
+position: absolute;
+bottom: -35px;
+left: 50%;
+transform: translateX(-50%);
+background: #323232;
+color: white;
+font-size: 12px;
+padding: 6px 9px;
+border-radius: 4px;
+white-space: nowrap;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.2s ease;
+z-index: 2000;
+}
+
+.tooltip:hover::after {
+opacity: 1;
+}
+
+/*TOAST */
+
+.toast {
+position: fixed;
+bottom: 25px;
+left: 50%;
+transform: translateX(-50%) translateY(100px);
+background: #323232;
+color: white;
+padding: 12px 18px;
+border-radius: 6px;
+display: flex;
+align-items: center;
+gap: 8px;
+opacity: 0;
+transition: all 0.3s ease;
+z-index: 2000;
+}
+
+.toast.show {
+opacity: 1;
+transform: translateX(-50%) translateY(0);
+}
+
+/* =========================================
+DARK MODE
+========================================= */
+
+body.dark-mode {
+background: #202124;
+color: #e8eaed;
+}
+
+body.dark-mode .header,
+body.dark-mode .sidebar,
+body.dark-mode .add-note-box,
+body.dark-mode .note-card,
+body.dark-mode .note-modal {
+background: #202124;
+border-color: #5f6368;
+}
+
+body.dark-mode .search-container {
+background: #303134;
+}
+
+body.dark-mode .search-container input,
+body.dark-mode .add-note-box,
+body.dark-mode .note-card {
+color: #e8eaed;
+}
+
+body.dark-mode .note-content,
+body.dark-mode #noteCount,
+body.dark-mode .form-group label {
+color: #bdc1c6;
+}
+
+body.dark-mode .nav-item,
+body.dark-mode .icon-button {
+background: #303134;
+}
+
+body.dark-mode .nav-item.active {
+background: #413f2e;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+border-color: #5f6368;
+color: #e8eaed;
+}
+
+body.dark-mode .secondary-button {
+background: #303134;
+color: #e8eaed;
+}
